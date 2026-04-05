@@ -7,7 +7,10 @@ import json
 import datetime
 import uuid
 
-app = Flask(__name__)
+# Get the parent directory (root of project)
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+app = Flask(__name__, template_folder=os.path.join(ROOT_DIR, 'templates'))
 app.config['SECRET_KEY'] = 'ai-job-platform-secret-2026'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///jobplatform.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
